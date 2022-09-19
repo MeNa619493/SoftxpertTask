@@ -14,6 +14,7 @@
 		396CAEEC28D8717F002298A6 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396CAEEB28D8717F002298A6 /* NetworkService.swift */; };
 		39D8AC1228D8807A001A2E16 /* RecipeTableModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D8AC1128D8807A001A2E16 /* RecipeTableModelView.swift */; };
 		39E85C4E28D8D4A3006C62E8 /* NetworkLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E85C4D28D8D4A3006C62E8 /* NetworkLayer.swift */; };
+		39EEDB7828D93318009AE51D /* Url.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EEDB7728D93318009AE51D /* Url.swift */; };
 		39F4478828D850890042B59B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F4478728D850890042B59B /* AppDelegate.swift */; };
 		39F4478A28D850890042B59B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F4478928D850890042B59B /* SceneDelegate.swift */; };
 		39F4478C28D850890042B59B /* RecipeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F4478B28D850890042B59B /* RecipeTableViewController.swift */; };
@@ -44,6 +45,7 @@
 		396CAEEB28D8717F002298A6 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		39D8AC1128D8807A001A2E16 /* RecipeTableModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeTableModelView.swift; sourceTree = "<group>"; };
 		39E85C4D28D8D4A3006C62E8 /* NetworkLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLayer.swift; sourceTree = "<group>"; };
+		39EEDB7728D93318009AE51D /* Url.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Url.swift; sourceTree = "<group>"; };
 		39F4478428D850890042B59B /* SoftxpertTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SoftxpertTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		39F4478728D850890042B59B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		39F4478928D850890042B59B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 			children = (
 				396CAEEB28D8717F002298A6 /* NetworkService.swift */,
 				39E85C4D28D8D4A3006C62E8 /* NetworkLayer.swift */,
+				39EEDB7728D93318009AE51D /* Url.swift */,
 			);
 			path = "network layer";
 			sourceTree = "<group>";
@@ -362,6 +365,7 @@
 				39D8AC1228D8807A001A2E16 /* RecipeTableModelView.swift in Sources */,
 				39F4478828D850890042B59B /* AppDelegate.swift in Sources */,
 				39F4478A28D850890042B59B /* SceneDelegate.swift in Sources */,
+				39EEDB7828D93318009AE51D /* Url.swift in Sources */,
 				39E85C4E28D8D4A3006C62E8 /* NetworkLayer.swift in Sources */,
 				396CAEE828D86C11002298A6 /* recipeJson.swift in Sources */,
 				396CAEEC28D8717F002298A6 /* NetworkService.swift in Sources */,

@@ -38,7 +38,7 @@ class RecipeTableViewController: UIViewController {
             }
         }
         
-        recipeViewModel?.fetchRecipesData()
+        recipeViewModel?.fetchRecipesData(healthFilter: "")
     }
 
     func registerNibFiles() {
@@ -50,6 +50,21 @@ class RecipeTableViewController: UIViewController {
         let okButton = UIAlertAction(title: "OK", style: .default) { _ in }
         alert.addAction(okButton)
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    @IBAction func onSegmentedControlPressed(_ sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 0:
+            recipeViewModel?.fetchRecipesData(healthFilter: "")
+        case 1:
+            recipeViewModel?.fetchRecipesData(healthFilter: "&health=low-sugar")
+        case 2:
+            recipeViewModel?.fetchRecipesData(healthFilter: "&health=keto-friendly")
+        case 3:
+            recipeViewModel?.fetchRecipesData(healthFilter: "&health=vegan")
+        default:
+            recipeViewModel?.fetchRecipesData(healthFilter: "")
+        }
     }
 
 }
@@ -73,7 +88,7 @@ extension RecipeTableViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+        return 120
     }
     
 }

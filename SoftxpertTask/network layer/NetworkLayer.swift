@@ -9,5 +9,5 @@
 import Foundation
 
 protocol NetworkLayer {
-    func fetchAllRecipesData(completion: @escaping (RecipeJson?,Error?) ->())
+    func fetchAllRecipesData(healthFilter: String, completion: @escaping (RecipeJson?,Error?) ->())
 }

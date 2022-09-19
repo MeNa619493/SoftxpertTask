@@ -27,8 +27,8 @@ class RecipeTableModelView {
         self.networkService = networkService
     }
     
-    func fetchRecipesData() {
-        networkService?.fetchAllRecipesData(completion: {[weak self] recipesData, error in
+    func fetchRecipesData(healthFilter: String) {
+        networkService?.fetchAllRecipesData(healthFilter: healthFilter, completion: {[weak self] recipesData, error in
             guard let self = self else {return}
             if let error = error {
                 let message = error.localizedDescription
