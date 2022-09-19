@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="RecipeCell" rowHeight="170" id="KGk-i7-Jjw" customClass="RecipeTableViewCell" customModule="SoftxpertTask" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="377" height="170"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="377" height="170"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pla-Co-vhM">
+                        <rect key="frame" x="8" y="8" width="150" height="154"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="150" id="Pke-fD-vFJ"/>
+                        </constraints>
+                    </imageView>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="bdq-VN-5p0">
+                        <rect key="frame" x="174" y="16" width="195" height="138"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4QX-7R-3zs">
+                                <rect key="frame" x="0.0" y="0.0" width="195" height="46"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OjO-q8-yhO">
+                                <rect key="frame" x="0.0" y="46" width="195" height="46"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gVR-gG-vd2">
+                                <rect key="frame" x="0.0" y="92" width="195" height="46"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                    </stackView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="pla-Co-vhM" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="CLH-7U-bRP"/>
+                    <constraint firstAttribute="trailing" secondItem="bdq-VN-5p0" secondAttribute="trailing" constant="8" id="Mao-GE-V7b"/>
+                    <constraint firstAttribute="bottom" secondItem="pla-Co-vhM" secondAttribute="bottom" constant="8" id="WgW-oj-LDc"/>
+                    <constraint firstItem="bdq-VN-5p0" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="gFr-7j-6f1"/>
+                    <constraint firstAttribute="bottom" secondItem="bdq-VN-5p0" secondAttribute="bottom" constant="16" id="pty-Nn-oJy"/>
+                    <constraint firstItem="bdq-VN-5p0" firstAttribute="leading" secondItem="pla-Co-vhM" secondAttribute="trailing" constant="16" id="tgw-qI-uwe"/>
+                    <constraint firstItem="pla-Co-vhM" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="weW-U3-MOC"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="healthLabels" destination="gVR-gG-vd2" id="znd-g2-gAL"/>
+                <outlet property="recipeImage" destination="pla-Co-vhM" id="Otf-Y7-xmd"/>
+                <outlet property="source" destination="OjO-q8-yhO" id="bR4-vU-DgB"/>
+                <outlet property="title" destination="4QX-7R-3zs" id="rqV-Mk-KC9"/>
+            </connections>
+            <point key="canvasLocation" x="173.18840579710147" y="152.67857142857142"/>
+        </tableViewCell>
+    </objects>
+</document>
