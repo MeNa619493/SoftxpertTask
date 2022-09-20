@@ -51,4 +51,16 @@ class RecipeTableModelView {
             }
         })
     }
+    
+    func fetchSearchedRecipes(searchInput: String, healthFilter: String) {
+        networkService?.fetchSearchedRecipesData(searchInput: searchInput, healthFilter: healthFilter, completion: {[weak self] recipesData, error in
+            guard let self = self else {return}
+            if let error = error {
+                let message = error.localizedDescription
+                self.showError = message
+            } else {
+               self.recipes = recipesData
+            }
+        })
+    }
 }

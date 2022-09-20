@@ -21,12 +21,30 @@
                                     <navigationItem title="Recipes Search" id="c4y-GP-fKz"/>
                                 </items>
                             </navigationBar>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Q6m-2V-jVo">
-                                <rect key="frame" x="0.0" y="85" width="414" height="56"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="njs-kC-7Vp">
+                                <rect key="frame" x="8" y="85" width="398" height="40"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="Nvx-xS-JGO">
+                                        <rect key="frame" x="0.0" y="0.0" width="348" height="40"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="go"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V2a-Sp-2JT">
+                                        <rect key="frame" x="358" y="1" width="40" height="38"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="7Pi-el-x2Y"/>
+                                            <constraint firstAttribute="height" constant="40" id="qa7-Mn-unE"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <state key="normal" backgroundImage="magnifyingglass" catalog="system"/>
+                                        <connections>
+                                            <action selector="onSearchButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="v5b-YV-csB"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="GJb-0m-jN1">
-                                <rect key="frame" x="0.0" y="149" width="414" height="32"/>
+                                <rect key="frame" x="8" y="133" width="398" height="32"/>
                                 <segments>
                                     <segment title="All"/>
                                     <segment title="Low Sugar"/>
@@ -38,8 +56,8 @@
                                     <action selector="onSegmentedControlPressed:" destination="BYZ-38-t0r" eventType="valueChanged" id="Pdy-xY-dib"/>
                                 </connections>
                             </segmentedControl>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="m5B-86-NPM">
-                                <rect key="frame" x="0.0" y="196" width="414" height="666"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="m5B-86-NPM">
+                                <rect key="frame" x="0.0" y="180" width="414" height="682"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </tableView>
                         </subviews>
@@ -47,27 +65,32 @@
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="m5B-86-NPM" secondAttribute="trailing" id="38C-t0-iXf"/>
                             <constraint firstItem="Pei-QJ-LHf" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="7lB-2B-wDw"/>
-                            <constraint firstItem="Q6m-2V-jVo" firstAttribute="top" secondItem="Pei-QJ-LHf" secondAttribute="bottom" constant="8" id="BEF-lQ-isD"/>
+                            <constraint firstItem="GJb-0m-jN1" firstAttribute="top" secondItem="njs-kC-7Vp" secondAttribute="bottom" constant="8" id="FAx-1C-iCx"/>
                             <constraint firstItem="Pei-QJ-LHf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="OJi-QD-4kL"/>
-                            <constraint firstItem="Q6m-2V-jVo" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="PCp-1k-cJh"/>
-                            <constraint firstItem="GJb-0m-jN1" firstAttribute="top" secondItem="Q6m-2V-jVo" secondAttribute="bottom" constant="8" id="W39-Xu-dNf"/>
-                            <constraint firstItem="Q6m-2V-jVo" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="cey-Dj-P0z"/>
-                            <constraint firstItem="GJb-0m-jN1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="dRr-bJ-wya"/>
+                            <constraint firstItem="njs-kC-7Vp" firstAttribute="top" secondItem="Pei-QJ-LHf" secondAttribute="bottom" constant="8" id="a7e-CS-iiW"/>
+                            <constraint firstItem="GJb-0m-jN1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="dRr-bJ-wya"/>
+                            <constraint firstItem="njs-kC-7Vp" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="fy3-bG-Fhx"/>
                             <constraint firstItem="m5B-86-NPM" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="n0t-SN-teS"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="njs-kC-7Vp" secondAttribute="trailing" constant="8" id="rZT-wb-coU"/>
                             <constraint firstItem="m5B-86-NPM" firstAttribute="top" secondItem="GJb-0m-jN1" secondAttribute="bottom" constant="16" id="roE-WF-WwJ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="m5B-86-NPM" secondAttribute="bottom" id="rso-oM-kVV"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="GJb-0m-jN1" secondAttribute="trailing" id="sfU-aX-1qA"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="GJb-0m-jN1" secondAttribute="trailing" constant="8" id="sfU-aX-1qA"/>
                             <constraint firstItem="Pei-QJ-LHf" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="33" id="yvr-lG-kvq"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="categoriesSegmentedControl" destination="GJb-0m-jN1" id="Q1I-r6-q9Q"/>
                         <outlet property="recipesTable" destination="m5B-86-NPM" id="68N-j1-tKc"/>
+                        <outlet property="searchTextField" destination="Nvx-xS-JGO" id="jji-Pz-B6E"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="133" y="96"/>
+            <point key="canvasLocation" x="131.8840579710145" y="95.758928571428569"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="magnifyingglass" catalog="system" width="64" height="56"/>
+    </resources>
 </document>

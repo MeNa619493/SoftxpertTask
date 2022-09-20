@@ -11,4 +11,5 @@ import Foundation
 protocol NetworkLayer {
     func fetchAllRecipesData(healthFilter: String, completion: @escaping (RecipeJson?,Error?) ->())
     func fetchRecipesOfNextPage(urlString: String, completion: @escaping ([Hit]?,Error?) ->())
+    func fetchSearchedRecipesData(searchInput: String,healthFilter: String, completion: @escaping (RecipeJson?,Error?) ->())
 }

@@ -17,6 +17,14 @@ class RecipeTableViewController: UIViewController {
         }
     }
     
+    @IBOutlet weak var searchTextField: UITextField! {
+        didSet {
+            searchTextField.delegate = self
+        }
+    }
+    
+    @IBOutlet weak var categoriesSegmentedControl: UISegmentedControl!
+    
     var recipes: RecipeJson?
     var recipeViewModel: RecipeTableModelView?
     
@@ -69,6 +77,9 @@ class RecipeTableViewController: UIViewController {
         }
     }
 
+    @IBAction func onSearchButtonPressed(_ sender: UIButton) {
+        searchTextField.endEditing(true)
+    }
 }
 
 extension RecipeTableViewController: UITableViewDelegate, UITableViewDataSource {
@@ -106,6 +117,54 @@ extension RecipeTableViewController: UITableViewDelegate, UITableViewDataSource 
         footerView.addSubview(spinner)
         spinner.startAnimating()
         return footerView
+    }
+}
+
+extension RecipeTableViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        searchTextField.endEditing(true)
+        return true
+    }
+    
+   func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+
+       if range.location == 0 && string == " " { // prevent space on first character
+           return false
+       }
+
+       if textField.text?.last == " " && string == " " { // allowed only single space
+           return false
+       }
+
+       if string == " " { return true } // now allowing space between name
+
+       if string.rangeOfCharacter(from: CharacterSet.letters.inverted) != nil {
+           return false
+       }
+
+       return true
+   }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if let input = searchTextField.text {
+            searchForWordInCategroy(segmentedIndex: categoriesSegmentedControl.selectedSegmentIndex, textFieldInput: input.trimmingCharacters(in: .whitespacesAndNewlines) )
+        }
+        searchTextField.text = ""
+    }
+    
+    func searchForWordInCategroy(segmentedIndex: Int, textFieldInput: String) {
+        switch segmentedIndex {
+        case 0:
+            recipeViewModel?.fetchSearchedRecipes(searchInput: textFieldInput, healthFilter: "")
+        case 1:
+            recipeViewModel?.fetchSearchedRecipes(searchInput: textFieldInput, healthFilter: "&health=low-sugar")
+        case 2:
+            recipeViewModel?.fetchSearchedRecipes(searchInput: textFieldInput, healthFilter: "&health=keto-friendly")
+        case 3:
+            recipeViewModel?.fetchSearchedRecipes(searchInput: textFieldInput, healthFilter: "&health=vegan")
+        default:
+            recipeViewModel?.fetchSearchedRecipes(searchInput: textFieldInput, healthFilter: "")
+        }
     }
 }
 
