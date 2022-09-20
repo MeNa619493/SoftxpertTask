@@ -118,6 +118,13 @@ extension RecipeTableViewController: UITableViewDelegate, UITableViewDataSource 
         spinner.startAnimating()
         return footerView
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = storyboard?.instantiateViewController(withIdentifier: "DetailsVC") as! DetailsViewController
+        vc.modalPresentationStyle = .fullScreen
+        vc.recipe = recipes?.hits?[indexPath.row].recipe
+        self.present(vc, animated: true, completion: nil)
+    }
 }
 
 extension RecipeTableViewController: UITextFieldDelegate {

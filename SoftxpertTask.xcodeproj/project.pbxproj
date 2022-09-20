@@ -25,6 +25,7 @@
 		39F4479128D8508C0042B59B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 39F4479028D8508C0042B59B /* Assets.xcassets */; };
 		39F4479428D8508C0042B59B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39F4479228D8508C0042B59B /* LaunchScreen.storyboard */; };
 		39F4479F28D8508C0042B59B /* SoftxpertTaskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F4479E28D8508C0042B59B /* SoftxpertTaskTests.swift */; };
+		39F779BF28DA2C9000067A46 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F779BE28DA2C9000067A46 /* DetailsViewController.swift */; };
 		F5CEF0BC78E2921A38B4ED20 /* Pods_SoftxpertTask.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A00E60BFA8D6EC1B0FD3B53C /* Pods_SoftxpertTask.framework */; };
 /* End PBXBuildFile section */
 
@@ -63,6 +64,7 @@
 		39F4479A28D8508C0042B59B /* SoftxpertTaskTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SoftxpertTaskTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		39F4479E28D8508C0042B59B /* SoftxpertTaskTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoftxpertTaskTests.swift; sourceTree = "<group>"; };
 		39F447A028D8508C0042B59B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		39F779BE28DA2C9000067A46 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		A00E60BFA8D6EC1B0FD3B53C /* Pods_SoftxpertTask.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SoftxpertTask.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D17EBD6E70854367D7C7098C /* Pods-SoftxpertTaskTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SoftxpertTaskTests.release.xcconfig"; path = "Target Support Files/Pods-SoftxpertTaskTests/Pods-SoftxpertTaskTests.release.xcconfig"; sourceTree = "<group>"; };
 		DE0FE7D07A3199704CEB8DF3 /* Pods-SoftxpertTask.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SoftxpertTask.release.xcconfig"; path = "Target Support Files/Pods-SoftxpertTask/Pods-SoftxpertTask.release.xcconfig"; sourceTree = "<group>"; };
@@ -166,8 +168,8 @@
 		39F4478628D850890042B59B /* SoftxpertTask */ = {
 			isa = PBXGroup;
 			children = (
-				39D8AC1328D88123001A2E16 /* view */,
-				39D8AC1028D8804D001A2E16 /* ViewModel */,
+				39F779BD28DA2C5C00067A46 /* detailsScreen */,
+				39F779BC28DA2C2600067A46 /* searchScreen */,
 				396CAEEA28D8713F002298A6 /* network layer */,
 				396CAEE628D86BB1002298A6 /* model */,
 				39F4478728D850890042B59B /* AppDelegate.swift */,
@@ -187,6 +189,23 @@
 				39F447A028D8508C0042B59B /* Info.plist */,
 			);
 			path = SoftxpertTaskTests;
+			sourceTree = "<group>";
+		};
+		39F779BC28DA2C2600067A46 /* searchScreen */ = {
+			isa = PBXGroup;
+			children = (
+				39D8AC1028D8804D001A2E16 /* ViewModel */,
+				39D8AC1328D88123001A2E16 /* view */,
+			);
+			path = searchScreen;
+			sourceTree = "<group>";
+		};
+		39F779BD28DA2C5C00067A46 /* detailsScreen */ = {
+			isa = PBXGroup;
+			children = (
+				39F779BE28DA2C9000067A46 /* DetailsViewController.swift */,
+			);
+			path = detailsScreen;
 			sourceTree = "<group>";
 		};
 		46B337FC03C49EFE26C70BD6 /* Pods */ = {
@@ -384,6 +403,7 @@
 				39F4478C28D850890042B59B /* RecipeTableViewController.swift in Sources */,
 				39D8AC1228D8807A001A2E16 /* RecipeTableModelView.swift in Sources */,
 				39F4478828D850890042B59B /* AppDelegate.swift in Sources */,
+				39F779BF28DA2C9000067A46 /* DetailsViewController.swift in Sources */,
 				39F4478A28D850890042B59B /* SceneDelegate.swift in Sources */,
 				39EEDB7828D93318009AE51D /* Url.swift in Sources */,
 				39E85C4E28D8D4A3006C62E8 /* NetworkLayer.swift in Sources */,
