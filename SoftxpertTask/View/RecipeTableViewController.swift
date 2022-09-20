@@ -36,6 +36,8 @@ class RecipeTableViewController: UIViewController {
             if let error = error {
                 self.showErrorAlert(error: error)
             }
+            
+            self.recipesTable.tableFooterView = nil
         }
         
         recipeViewModel?.fetchRecipesData(healthFilter: "")
@@ -75,7 +77,6 @@ extension RecipeTableViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         return recipes?.hits?.count ?? 0
     }
     
@@ -91,5 +92,22 @@ extension RecipeTableViewController: UITableViewDelegate, UITableViewDataSource 
         return 120
     }
     
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row == (recipes?.hits!.count)!-1 && (recipes?.links?.next?.title)!.rawValue == "Next page" {
+            recipesTable.tableFooterView = createSpinnerFooter()
+            recipeViewModel?.fetchRecipesOfNextPage(urlString: recipes?.links?.next?.href ?? "")
+        }
+    }
+    
+    func createSpinnerFooter() -> UIView {
+        let footerView = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 120))
+        let spinner = UIActivityIndicatorView()
+        spinner.center = footerView.center
+        footerView.addSubview(spinner)
+        spinner.startAnimating()
+        return footerView
+    }
 }
+
+
 

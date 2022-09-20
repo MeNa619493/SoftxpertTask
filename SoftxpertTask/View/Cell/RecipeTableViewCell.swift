@@ -24,7 +24,7 @@ class RecipeTableViewCell: UITableViewCell {
     func configureCell(recipe: Recipe) {
         title.text = recipe.label
         source.text = recipe.source
-        healthLabels.text = recipe.healthLabels?[0] ?? ""
+//        healthLabels.text = recipe.healthLabels?[0] ?? ""
         
         if let url = URL(string: recipe.image ?? ""){
             recipeImage.kf.setImage(with: url)

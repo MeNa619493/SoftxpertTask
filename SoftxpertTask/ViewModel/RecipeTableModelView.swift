@@ -39,4 +39,16 @@ class RecipeTableModelView {
             
         })
     }
+    
+    func fetchRecipesOfNextPage(urlString: String) {
+        networkService?.fetchRecipesOfNextPage(urlString: urlString, completion: {[weak self] recipesData, error in
+            guard let self = self else {return}
+            if let error = error {
+                let message = error.localizedDescription
+                self.showError = message
+            } else {
+                self.recipes?.hits?.append(contentsOf: recipesData ?? Array<Hit>())
+            }
+        })
+    }
 }

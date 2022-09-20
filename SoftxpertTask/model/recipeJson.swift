@@ -11,7 +11,7 @@ import Foundation
 struct RecipeJson: Codable {
     let from, to, count: Int?
     let links: WelcomeLinks?
-    let hits: [Hit]?
+    var hits: [Hit]?
 
     enum CodingKeys: String, CodingKey {
         case from, to, count
