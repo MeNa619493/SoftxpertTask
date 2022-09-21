@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ProgressHUD
 
 class RecipeTableViewController: UIViewController {
 
@@ -47,6 +48,7 @@ class RecipeTableViewController: UIViewController {
                 self.showErrorAlert(error: error)
             }
             
+            self.hideProgress()
             self.recipesTable.tableFooterView = nil
         }
         
@@ -74,7 +76,18 @@ class RecipeTableViewController: UIViewController {
         }
     }
     
+    func showprogress() {
+        ProgressHUD.animationType = .circleStrokeSpin
+        ProgressHUD.show()
+    }
+    
+    func hideProgress() {
+        ProgressHUD.dismiss()
+    }
+    
     @IBAction func onSegmentedControlPressed(_ sender: UISegmentedControl) {
+        showprogress()
+        
         switch sender.selectedSegmentIndex {
         case 0:
             recipeViewModel?.fetchRecipesData(healthFilter: "")
@@ -116,7 +129,10 @@ extension RecipeTableViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if indexPath.row == (recipe?.hits!.count)!-1 && (recipe?.links?.next?.title)!.rawValue == "Next page" {
+        guard let count = recipe?.hits?.count else { return }
+        guard let nextPage = recipe?.links?.next?.title?.rawValue else { return }
+        
+        if indexPath.row == count-1 && nextPage == "Next page" {
             recipesTable.tableFooterView = createSpinnerFooter()
             recipeViewModel?.fetchRecipesOfNextPage(urlString: recipe?.links?.next?.href ?? "")
         }
@@ -172,6 +188,8 @@ extension RecipeTableViewController: UITextFieldDelegate {
     }
     
     func searchForWordInCategroy(segmentedIndex: Int, textFieldInput: String) {
+        showprogress()
+        
         switch segmentedIndex {
         case 0:
             recipeViewModel?.fetchSearchedRecipes(searchInput: textFieldInput, healthFilter: "")

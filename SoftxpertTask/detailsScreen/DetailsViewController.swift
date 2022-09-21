@@ -8,6 +8,7 @@
 
 import UIKit
 import Kingfisher
+import ProgressHUD
 
 class DetailsViewController: UIViewController {
 
@@ -26,13 +27,19 @@ class DetailsViewController: UIViewController {
    
     override func viewDidLoad() {
         super.viewDidLoad()
+        showprogress()
         prepareScreenElements()
         makeWebsiteButtonRounded()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        ProgressHUD.dismiss()
+    }
+    
+    func showprogress() {
+        ProgressHUD.animationType = .circleStrokeSpin
+        ProgressHUD.show()
     }
     
     func prepareScreenElements() {
