@@ -24,8 +24,9 @@ class RecipeTableViewController: UIViewController {
     }
     
     @IBOutlet weak var categoriesSegmentedControl: UISegmentedControl!
+    @IBOutlet weak var noResultImage: UIImageView!
     
-    var recipes: RecipeJson?
+    var recipe: RecipeJson?
     var recipeViewModel: RecipeTableModelView?
     
     override func viewDidLoad() {
@@ -34,10 +35,11 @@ class RecipeTableViewController: UIViewController {
         
         recipeViewModel = RecipeTableModelView(networkService: NetworkService())
         
-        recipeViewModel?.bindRecipeViewModelToView = {[weak self] recipesArray, error in
+        recipeViewModel?.bindRecipeViewModelToView = {[weak self] recipeData, error in
             guard let self = self else {return}
-            if let recipesArray = recipesArray {
-                self.recipes = recipesArray
+            if let recipeData = recipeData {
+                self.recipe = recipeData
+                self.handleNoSearchResult()
                 self.recipesTable.reloadData()
             }
             
@@ -60,6 +62,16 @@ class RecipeTableViewController: UIViewController {
         let okButton = UIAlertAction(title: "OK", style: .default) { _ in }
         alert.addAction(okButton)
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    func handleNoSearchResult() {
+        if recipe?.hits?.count == 0 {
+            self.noResultImage.isHidden = false
+            self.recipesTable.isHidden = true
+        } else {
+            self.noResultImage.isHidden = true
+            self.recipesTable.isHidden = false
+        }
     }
     
     @IBAction func onSegmentedControlPressed(_ sender: UISegmentedControl) {
@@ -88,12 +100,12 @@ extension RecipeTableViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return recipes?.hits?.count ?? 0
+        return recipe?.hits?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RecipeCell", for: indexPath) as! RecipeTableViewCell
-        if let recipe = recipes?.hits?[indexPath.row].recipe {
+        if let recipe = recipe?.hits?[indexPath.row].recipe {
             cell.configureCell(recipe: recipe)
         }
         return cell
@@ -104,9 +116,9 @@ extension RecipeTableViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if indexPath.row == (recipes?.hits!.count)!-1 && (recipes?.links?.next?.title)!.rawValue == "Next page" {
+        if indexPath.row == (recipe?.hits!.count)!-1 && (recipe?.links?.next?.title)!.rawValue == "Next page" {
             recipesTable.tableFooterView = createSpinnerFooter()
-            recipeViewModel?.fetchRecipesOfNextPage(urlString: recipes?.links?.next?.href ?? "")
+            recipeViewModel?.fetchRecipesOfNextPage(urlString: recipe?.links?.next?.href ?? "")
         }
     }
     
@@ -122,7 +134,7 @@ extension RecipeTableViewController: UITableViewDelegate, UITableViewDataSource 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = storyboard?.instantiateViewController(withIdentifier: "DetailsVC") as! DetailsViewController
         vc.modalPresentationStyle = .fullScreen
-        vc.recipe = recipes?.hits?[indexPath.row].recipe
+        vc.recipe = recipe?.hits?[indexPath.row].recipe
         self.present(vc, animated: true, completion: nil)
     }
 }

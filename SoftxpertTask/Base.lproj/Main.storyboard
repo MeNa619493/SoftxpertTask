@@ -56,6 +56,13 @@
                                     <action selector="onSegmentedControlPressed:" destination="BYZ-38-t0r" eventType="valueChanged" id="Pdy-xY-dib"/>
                                 </connections>
                             </segmentedControl>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no-result" translatesAutoresizingMaskIntoConstraints="NO" id="OMX-hH-qGB">
+                                <rect key="frame" x="57" y="303" width="300" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="elV-Of-XQa"/>
+                                    <constraint firstAttribute="width" constant="300" id="zjt-D5-tRx"/>
+                                </constraints>
+                            </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="m5B-86-NPM">
                                 <rect key="frame" x="0.0" y="180" width="414" height="682"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -66,10 +73,12 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="m5B-86-NPM" secondAttribute="trailing" id="38C-t0-iXf"/>
                             <constraint firstItem="Pei-QJ-LHf" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="7lB-2B-wDw"/>
                             <constraint firstItem="GJb-0m-jN1" firstAttribute="top" secondItem="njs-kC-7Vp" secondAttribute="bottom" constant="8" id="FAx-1C-iCx"/>
+                            <constraint firstItem="OMX-hH-qGB" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="H6P-UI-Pnc"/>
                             <constraint firstItem="Pei-QJ-LHf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="OJi-QD-4kL"/>
                             <constraint firstItem="njs-kC-7Vp" firstAttribute="top" secondItem="Pei-QJ-LHf" secondAttribute="bottom" constant="8" id="a7e-CS-iiW"/>
                             <constraint firstItem="GJb-0m-jN1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="dRr-bJ-wya"/>
                             <constraint firstItem="njs-kC-7Vp" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="fy3-bG-Fhx"/>
+                            <constraint firstItem="OMX-hH-qGB" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="mIy-tL-nxZ"/>
                             <constraint firstItem="m5B-86-NPM" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="n0t-SN-teS"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="njs-kC-7Vp" secondAttribute="trailing" constant="8" id="rZT-wb-coU"/>
                             <constraint firstItem="m5B-86-NPM" firstAttribute="top" secondItem="GJb-0m-jN1" secondAttribute="bottom" constant="16" id="roE-WF-WwJ"/>
@@ -81,6 +90,7 @@
                     </view>
                     <connections>
                         <outlet property="categoriesSegmentedControl" destination="GJb-0m-jN1" id="Q1I-r6-q9Q"/>
+                        <outlet property="noResultImage" destination="OMX-hH-qGB" id="pdU-6h-tbo"/>
                         <outlet property="recipesTable" destination="m5B-86-NPM" id="68N-j1-tKc"/>
                         <outlet property="searchTextField" destination="Nvx-xS-JGO" id="jji-Pz-B6E"/>
                     </connections>
@@ -173,6 +183,10 @@
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fap-Il-2JL">
                                                 <rect key="frame" x="342.5" y="761.5" width="55.5" height="56.5"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="55.5" id="9oW-no-gxd"/>
+                                                    <constraint firstAttribute="height" constant="56.5" id="HmZ-Tc-lhg"/>
+                                                </constraints>
                                                 <state key="normal" backgroundImage="images"/>
                                                 <connections>
                                                     <action selector="onWebsiteButtonPressed:" destination="Okv-0z-1N5" eventType="touchUpInside" id="hFq-eT-QRQ"/>
@@ -193,7 +207,7 @@
                                             <constraint firstAttribute="trailing" secondItem="8RO-x8-lcr" secondAttribute="trailing" id="f7C-jh-zNh"/>
                                             <constraint firstItem="8RO-x8-lcr" firstAttribute="top" secondItem="0PF-hN-WvS" secondAttribute="top" id="kNZ-SK-Ial"/>
                                             <constraint firstItem="gUb-Jk-b7N" firstAttribute="top" secondItem="8RO-x8-lcr" secondAttribute="bottom" id="o9H-O8-KJZ"/>
-                                            <constraint firstItem="fap-Il-2JL" firstAttribute="top" secondItem="YI4-td-tey" secondAttribute="bottom" constant="16" id="skh-uV-Ceq"/>
+                                            <constraint firstItem="fap-Il-2JL" firstAttribute="top" secondItem="YI4-td-tey" secondAttribute="bottom" constant="16" id="pgi-S4-HVy"/>
                                             <constraint firstItem="Tcl-2P-Gbm" firstAttribute="leading" secondItem="0PF-hN-WvS" secondAttribute="leading" constant="16" id="ugK-EE-8R7"/>
                                             <constraint firstItem="aKl-aw-yLH" firstAttribute="leading" secondItem="0PF-hN-WvS" secondAttribute="leading" constant="32" id="unB-2a-LD2"/>
                                             <constraint firstAttribute="trailing" secondItem="gUb-Jk-b7N" secondAttribute="trailing" id="v92-Dx-oHf"/>
@@ -239,6 +253,7 @@
         <image name="back" width="9.5" height="15.5"/>
         <image name="images" width="55.5" height="56.5"/>
         <image name="magnifyingglass" catalog="system" width="64" height="56"/>
+        <image name="no-result" width="125" height="75"/>
         <image name="square.and.arrow.up" catalog="system" width="56" height="64"/>
     </resources>
 </document>

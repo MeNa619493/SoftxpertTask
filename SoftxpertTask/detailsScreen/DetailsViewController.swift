@@ -23,14 +23,15 @@ class DetailsViewController: UIViewController {
     }
     
     @IBOutlet weak var websiteButton: UIButton!
-    
-    
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         prepareScreenElements()
         makeWebsiteButtonRounded()
-        recipeIngredientsTable.rowHeight = UITableView.automaticDimension
-        recipeIngredientsTable.estimatedRowHeight = 600
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
     }
     
@@ -78,13 +79,13 @@ extension DetailsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return recipe?.ingredientLines?.count ?? 0
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! IngredientsTableViewCell
-        
+
         cell.ingredientLabel.text = recipe?.ingredientLines?[indexPath.row]
         return cell
     }
-    
-    
+
+
 }
