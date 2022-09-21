@@ -52,7 +52,7 @@ class RecipeTableViewCell: UITableViewCell {
 
 extension RecipeTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        recipe?.healthLabels?.count ?? 0
+        recipe?.healthLabels?.count==0 ? 0 : 2
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
