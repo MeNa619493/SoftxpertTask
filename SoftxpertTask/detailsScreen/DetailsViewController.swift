@@ -16,19 +16,15 @@ class DetailsViewController: UIViewController {
     
     @IBOutlet weak var recipeImage: UIImageView!
     @IBOutlet weak var recipeTitle: UILabel!
-    @IBOutlet weak var recipeIngredientsTable: UITableView! {
-        didSet {
-            recipeIngredientsTable.delegate = self
-            recipeIngredientsTable.dataSource = self
-        }
-    }
     
     @IBOutlet weak var websiteButton: UIButton!
    
+    @IBOutlet weak var ingredientsStack: UIStackView!
     override func viewDidLoad() {
         super.viewDidLoad()
         showprogress()
         prepareScreenElements()
+        prepareIngredientsTable()
         makeWebsiteButtonRounded()
     }
     
@@ -47,6 +43,19 @@ class DetailsViewController: UIViewController {
             recipeImage.kf.setImage(with: url)
         }
         recipeTitle.text = recipe?.label
+    }
+    
+    func prepareIngredientsTable() {
+        if let textArray = recipe?.ingredientLines {
+            for text in textArray {
+                let label = UILabel()
+                label.widthAnchor.constraint(equalToConstant: ingredientsStack.frame.width).isActive = true
+                label.text  = "- \(text)"
+                label.numberOfLines = 0
+                label.textAlignment = .left
+                ingredientsStack.addArrangedSubview(label)
+            }
+        }
     }
     
     func makeWebsiteButtonRounded() {
@@ -79,18 +88,5 @@ class DetailsViewController: UIViewController {
         let activityViewController = UIActivityViewController(activityItems: objectToShare, applicationActivities: nil)
         self.present(activityViewController, animated: true, completion: nil)
     }
-    
 }
 
-extension DetailsViewController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return recipe?.ingredientLines?.count ?? 0
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! IngredientsTableViewCell
-
-        cell.ingredientLabel.text = recipe?.ingredientLines?[indexPath.row]
-        return cell
-    }
-}
