@@ -10,7 +10,7 @@ import Foundation
 
 struct RecipeJson: Codable {
     let from, to, count: Int?
-    let links: WelcomeLinks?
+    var links: WelcomeLinks?
     var hits: [Hit]?
 
     enum CodingKeys: String, CodingKey {
@@ -29,7 +29,7 @@ struct Hit: Codable {
 }
 
 struct Next: Codable {
-    let href: String?
+    var href: String?
     let title: Title?
 }
 
@@ -48,5 +48,5 @@ struct Recipe: Codable {
 }
 
 struct WelcomeLinks: Codable {
-    let next: Next?
+    var next: Next?
 }

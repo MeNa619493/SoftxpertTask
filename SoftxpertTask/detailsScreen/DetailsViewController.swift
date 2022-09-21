@@ -93,6 +93,4 @@ extension DetailsViewController: UITableViewDelegate, UITableViewDataSource {
         cell.ingredientLabel.text = recipe?.ingredientLines?[indexPath.row]
         return cell
     }
-
-
 }

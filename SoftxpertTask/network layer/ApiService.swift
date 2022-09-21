@@ -1,5 +1,5 @@
 //
-//  NetworkLayer.swift
+//  ApiService.swift
 //  SoftxpertTask
 //
 //  Created by Mina Ezzat on 9/19/22.
@@ -8,8 +8,8 @@
 
 import Foundation
 
-protocol NetworkLayer {
+protocol ApiService {
     func fetchAllRecipesData(healthFilter: String, completion: @escaping (RecipeJson?,Error?) ->())
-    func fetchRecipesOfNextPage(urlString: String, completion: @escaping ([Hit]?,Error?) ->())
+    func fetchRecipesOfNextPage(urlString: String, completion: @escaping (RecipeJson?,Error?) ->())
     func fetchSearchedRecipesData(searchInput: String,healthFilter: String, completion: @escaping (RecipeJson?,Error?) ->())
 }

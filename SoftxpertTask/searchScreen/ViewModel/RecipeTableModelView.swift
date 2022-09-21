@@ -9,10 +9,10 @@
 import Foundation
 
 class RecipeTableModelView {
-    var networkService: NetworkLayer?
-    var recipes: RecipeJson? {
+    var networkService: ApiService?
+    var recipe: RecipeJson? {
         didSet {
-            self.bindRecipeViewModelToView(recipes, nil)
+            self.bindRecipeViewModelToView(recipe, nil)
         }
     }
     var showError: String? {
@@ -23,7 +23,7 @@ class RecipeTableModelView {
     
     var bindRecipeViewModelToView: ((RecipeJson?, String?)->Void) = {_,_ in }
     
-    init(networkService: NetworkLayer) {
+    init(networkService: ApiService) {
         self.networkService = networkService
     }
     
@@ -34,7 +34,7 @@ class RecipeTableModelView {
                 let message = error.localizedDescription
                 self.showError = message
             } else {
-                self.recipes = recipesData
+                self.recipe = recipesData
             }
         })
     }
@@ -46,7 +46,8 @@ class RecipeTableModelView {
                 let message = error.localizedDescription
                 self.showError = message
             } else {
-                self.recipes?.hits?.append(contentsOf: recipesData ?? Array<Hit>())
+                self.recipe?.hits?.append(contentsOf: recipesData?.hits ?? Array<Hit>())
+                self.recipe?.links?.next?.href = recipesData?.links?.next?.href
             }
         })
     }
@@ -58,7 +59,7 @@ class RecipeTableModelView {
                 let message = error.localizedDescription
                 self.showError = message
             } else {
-               self.recipes = recipesData
+               self.recipe = recipesData
             }
         })
     }

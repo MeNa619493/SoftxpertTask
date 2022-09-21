@@ -37,7 +37,7 @@ class RecipeTableViewController: UIViewController {
         recipeViewModel = RecipeTableModelView(networkService: NetworkService())
         
         recipeViewModel?.bindRecipeViewModelToView = {[weak self] recipeData, error in
-            guard let self = self else {return}
+            guard let self = self else { return }
             if let recipeData = recipeData {
                 self.recipe = recipeData
                 self.handleNoSearchResult()
@@ -90,15 +90,15 @@ class RecipeTableViewController: UIViewController {
         
         switch sender.selectedSegmentIndex {
         case 0:
-            recipeViewModel?.fetchRecipesData(healthFilter: "")
+            recipeViewModel?.fetchRecipesData(healthFilter: HealthFilters.none.rawValue)
         case 1:
-            recipeViewModel?.fetchRecipesData(healthFilter: "&health=low-sugar")
+            recipeViewModel?.fetchRecipesData(healthFilter: HealthFilters.lowSugar.rawValue)
         case 2:
-            recipeViewModel?.fetchRecipesData(healthFilter: "&health=keto-friendly")
+            recipeViewModel?.fetchRecipesData(healthFilter: HealthFilters.keto.rawValue)
         case 3:
-            recipeViewModel?.fetchRecipesData(healthFilter: "&health=vegan")
+            recipeViewModel?.fetchRecipesData(healthFilter: HealthFilters.vegan.rawValue)
         default:
-            recipeViewModel?.fetchRecipesData(healthFilter: "")
+            recipeViewModel?.fetchRecipesData(healthFilter: HealthFilters.none.rawValue)
         }
     }
 
@@ -134,7 +134,9 @@ extension RecipeTableViewController: UITableViewDelegate, UITableViewDataSource 
         
         if indexPath.row == count-1 && nextPage == "Next page" {
             recipesTable.tableFooterView = createSpinnerFooter()
-            recipeViewModel?.fetchRecipesOfNextPage(urlString: recipe?.links?.next?.href ?? "")
+            if let url = recipe?.links?.next?.href {
+                recipeViewModel?.fetchRecipesOfNextPage(urlString: url)
+            }
         }
     }
     
@@ -192,15 +194,15 @@ extension RecipeTableViewController: UITextFieldDelegate {
         
         switch segmentedIndex {
         case 0:
-            recipeViewModel?.fetchSearchedRecipes(searchInput: textFieldInput, healthFilter: "")
+            recipeViewModel?.fetchSearchedRecipes(searchInput: textFieldInput, healthFilter: HealthFilters.none.rawValue)
         case 1:
-            recipeViewModel?.fetchSearchedRecipes(searchInput: textFieldInput, healthFilter: "&health=low-sugar")
+            recipeViewModel?.fetchSearchedRecipes(searchInput: textFieldInput, healthFilter: HealthFilters.lowSugar.rawValue)
         case 2:
-            recipeViewModel?.fetchSearchedRecipes(searchInput: textFieldInput, healthFilter: "&health=keto-friendly")
+            recipeViewModel?.fetchSearchedRecipes(searchInput: textFieldInput, healthFilter: HealthFilters.keto.rawValue)
         case 3:
-            recipeViewModel?.fetchSearchedRecipes(searchInput: textFieldInput, healthFilter: "&health=vegan")
+            recipeViewModel?.fetchSearchedRecipes(searchInput: textFieldInput, healthFilter: HealthFilters.vegan.rawValue)
         default:
-            recipeViewModel?.fetchSearchedRecipes(searchInput: textFieldInput, healthFilter: "")
+            recipeViewModel?.fetchSearchedRecipes(searchInput: textFieldInput, healthFilter: HealthFilters.none.rawValue)
         }
     }
 }
