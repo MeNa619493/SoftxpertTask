@@ -9,6 +9,8 @@ target 'SoftxpertTask' do
 	pod 'Alamofire', '~> 5.4.0'
 	pod 'ProgressHUD'
 	pod 'Kingfisher', '~> 5.15.8'
+	pod 'lottie-ios', '~> 3.2.3'
+	
 
   target 'SoftxpertTaskTests' do
     inherit! :search_paths
