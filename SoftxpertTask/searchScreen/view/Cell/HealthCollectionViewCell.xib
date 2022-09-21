@@ -16,26 +16,23 @@
                 <rect key="frame" x="0.0" y="0.0" width="184" height="35"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fDk-Y3-EVD">
-                        <rect key="frame" x="0.0" y="8" width="176" height="19"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="AUU-Ah-xDJ">
+                        <rect key="frame" x="36" y="11" width="133" height="18"/>
+                    </stackView>
                 </subviews>
             </view>
             <constraints>
-                <constraint firstItem="fDk-Y3-EVD" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="LNh-fM-YRF"/>
-                <constraint firstItem="fDk-Y3-EVD" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="8" id="MN5-l9-nfZ"/>
-                <constraint firstAttribute="bottom" secondItem="fDk-Y3-EVD" secondAttribute="bottom" constant="8" id="ZU8-3Z-cCU"/>
-                <constraint firstAttribute="trailing" secondItem="fDk-Y3-EVD" secondAttribute="trailing" constant="8" id="sh8-oN-vff"/>
+                <constraint firstItem="AUU-Ah-xDJ" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="AFh-1R-77b"/>
+                <constraint firstAttribute="bottom" secondItem="AUU-Ah-xDJ" secondAttribute="bottom" id="LvL-uc-drc"/>
+                <constraint firstAttribute="trailing" secondItem="AUU-Ah-xDJ" secondAttribute="trailing" id="X6H-Tw-EHY"/>
+                <constraint firstItem="AUU-Ah-xDJ" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="pfW-rx-rLZ"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="184" height="35"/>
             <connections>
-                <outlet property="healthLabel" destination="fDk-Y3-EVD" id="tvb-uH-KGD"/>
+                <outlet property="cellStack" destination="AUU-Ah-xDJ" id="QJz-Jb-UZg"/>
             </connections>
-            <point key="canvasLocation" x="228.98550724637684" y="139.62053571428569"/>
+            <point key="canvasLocation" x="228.98550724637684" y="138.95089285714286"/>
         </collectionViewCell>
     </objects>
 </document>

@@ -54,12 +54,14 @@ extension RecipeTableViewCell: UICollectionViewDelegate, UICollectionViewDataSou
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         recipe?.healthLabels?.count ?? 0
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HealthCell", for: indexPath) as! HealthCollectionViewCell
-            
-        cell.configureCell(health: recipe?.healthLabels?[indexPath.row] ?? "")
+
+        if let healthLabels = recipe?.healthLabels {
+            cell.configureCell(health: healthLabels)
+        }
         return cell
     }
-    
+
 }
