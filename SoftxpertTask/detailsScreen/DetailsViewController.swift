@@ -29,6 +29,9 @@ class DetailsViewController: UIViewController {
         super.viewDidLoad()
         prepareScreenElements()
         makeWebsiteButtonRounded()
+        recipeIngredientsTable.rowHeight = UITableView.automaticDimension
+        recipeIngredientsTable.estimatedRowHeight = 600
+        
     }
     
     func prepareScreenElements() {
@@ -63,6 +66,10 @@ class DetailsViewController: UIViewController {
     }
     
     @IBAction func onShareButtonPressed(_ sender: UIBarButtonItem) {
+        guard let url = URL(string: recipe?.url ?? "") else { return }
+        let objectToShare = [url]
+        let activityViewController = UIActivityViewController(activityItems: objectToShare, applicationActivities: nil)
+        self.present(activityViewController, animated: true, completion: nil)
     }
     
 }
@@ -73,12 +80,11 @@ extension DetailsViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        cell.textLabel?.text = recipe?.ingredientLines?[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! IngredientsTableViewCell
+        
+        cell.ingredientLabel.text = recipe?.ingredientLines?[indexPath.row]
         return cell
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        20
-    }
+    
 }

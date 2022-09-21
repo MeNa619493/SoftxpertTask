@@ -36,7 +36,6 @@ class RecipeTableModelView {
             } else {
                 self.recipes = recipesData
             }
-            
         })
     }
     

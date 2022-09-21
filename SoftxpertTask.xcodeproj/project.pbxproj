@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		201AFB47100236AAB39349A4 /* Pods_SoftxpertTaskTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 113021648F7DD0F8E8A142AD /* Pods_SoftxpertTaskTests.framework */; };
+		390B11B928DA9CB90083AEFF /* IngredientsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390B11B828DA9CB90083AEFF /* IngredientsTableViewCell.swift */; };
 		396CAEE428D86781002298A6 /* RecipeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396CAEE228D86781002298A6 /* RecipeTableViewCell.swift */; };
 		396CAEE528D86781002298A6 /* RecipeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 396CAEE328D86781002298A6 /* RecipeTableViewCell.xib */; };
 		396CAEE828D86C11002298A6 /* recipeJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396CAEE728D86C11002298A6 /* recipeJson.swift */; };
@@ -43,6 +44,7 @@
 		113021648F7DD0F8E8A142AD /* Pods_SoftxpertTaskTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SoftxpertTaskTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		120EEE03D56B9D5B6E66903B /* Pods-SoftxpertTask.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SoftxpertTask.debug.xcconfig"; path = "Target Support Files/Pods-SoftxpertTask/Pods-SoftxpertTask.debug.xcconfig"; sourceTree = "<group>"; };
 		2755EBB40B42331E6A9A60F0 /* Pods-SoftxpertTaskTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SoftxpertTaskTests.debug.xcconfig"; path = "Target Support Files/Pods-SoftxpertTaskTests/Pods-SoftxpertTaskTests.debug.xcconfig"; sourceTree = "<group>"; };
+		390B11B828DA9CB90083AEFF /* IngredientsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientsTableViewCell.swift; sourceTree = "<group>"; };
 		396CAEE228D86781002298A6 /* RecipeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeTableViewCell.swift; sourceTree = "<group>"; };
 		396CAEE328D86781002298A6 /* RecipeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecipeTableViewCell.xib; sourceTree = "<group>"; };
 		396CAEE728D86C11002298A6 /* recipeJson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = recipeJson.swift; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 			isa = PBXGroup;
 			children = (
 				39F779BE28DA2C9000067A46 /* DetailsViewController.swift */,
+				390B11B828DA9CB90083AEFF /* IngredientsTableViewCell.swift */,
 			);
 			path = detailsScreen;
 			sourceTree = "<group>";
@@ -399,6 +402,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				390B11B928DA9CB90083AEFF /* IngredientsTableViewCell.swift in Sources */,
 				397D741128D9B22D00489220 /* HealthCollectionViewCell.swift in Sources */,
 				39F4478C28D850890042B59B /* RecipeTableViewController.swift in Sources */,
 				39D8AC1228D8807A001A2E16 /* RecipeTableModelView.swift in Sources */,
