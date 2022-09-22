@@ -56,7 +56,7 @@ class RecipeTableViewController: UIViewController {
     }
 
     func registerNibFiles() {
-        recipesTable.register(UINib(nibName: "RecipeTableViewCell", bundle: nil), forCellReuseIdentifier: "RecipeCell")
+        recipesTable.register(UINib(nibName: CellFilesName.RecipeTableViewCell.rawValue, bundle: nil), forCellReuseIdentifier: CellIdentifier.RecipeTableViewCell.rawValue)
     }
     
     func showErrorAlert(error: String) {
@@ -117,7 +117,7 @@ extension RecipeTableViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "RecipeCell", for: indexPath) as! RecipeTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.RecipeTableViewCell.rawValue, for: indexPath) as! RecipeTableViewCell
         if let recipe = recipe?.hits?[indexPath.row].recipe {
             cell.configureCell(recipe: recipe)
         }
@@ -150,7 +150,7 @@ extension RecipeTableViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = storyboard?.instantiateViewController(withIdentifier: "DetailsVC") as! DetailsViewController
+        let vc = storyboard?.instantiateViewController(withIdentifier: ModulsIdentifier.DetailsViewController.rawValue) as! DetailsViewController
         vc.modalPresentationStyle = .fullScreen
         vc.recipe = recipe?.hits?[indexPath.row].recipe
         self.present(vc, animated: true, completion: nil)

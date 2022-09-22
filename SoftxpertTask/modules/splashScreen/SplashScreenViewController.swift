@@ -25,7 +25,7 @@ class SplashScreenViewController: UIViewController {
 
     func navigationToNextView() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-            let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SearchVC")
+            let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: ModulsIdentifier.RecipeTableViewController.rawValue)
             vc.modalPresentationStyle = .fullScreen
             self.present(vc, animated: true, completion: nil)
         }

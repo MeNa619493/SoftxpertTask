@@ -9,7 +9,7 @@
 import Foundation
 
 class RecipeTableModelView {
-    var networkService: ApiService?
+    var networkService: NetwokProtocol?
     var recipe: RecipeJson? {
         didSet {
             self.bindRecipeViewModelToView(recipe, nil)
@@ -23,7 +23,7 @@ class RecipeTableModelView {
     
     var bindRecipeViewModelToView: ((RecipeJson?, String?)->Void) = {_,_ in }
     
-    init(networkService: ApiService) {
+    init(networkService: NetwokProtocol) {
         self.networkService = networkService
     }
     

@@ -45,7 +45,7 @@ class RecipeTableViewCell: UITableViewCell {
     }
     
     func registerNibFile() {
-        healthCollectionView.register(UINib(nibName: "HealthCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "HealthCell")
+        healthCollectionView.register(UINib(nibName: CellFilesName.HealthCollectionViewCell.rawValue, bundle: nil), forCellWithReuseIdentifier: CellIdentifier.HealthCollectionViewCell.rawValue)
     }
     
 }
@@ -56,7 +56,7 @@ extension RecipeTableViewCell: UICollectionViewDelegate, UICollectionViewDataSou
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HealthCell", for: indexPath) as! HealthCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellIdentifier.HealthCollectionViewCell.rawValue, for: indexPath) as! HealthCollectionViewCell
 
         if let healthLabels = recipe?.healthLabels {
             cell.configureCell(health: healthLabels)

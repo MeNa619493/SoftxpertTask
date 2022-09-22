@@ -9,7 +9,7 @@
 import Foundation
 import Alamofire
 
-class NetworkService : ApiService{
+class NetworkService : NetwokProtocol{
     
     func fetchAllRecipesData(healthFilter: String, completion: @escaping (RecipeJson?,Error?) ->()){
         guard let url = URL(string: UrlServices(queryParamter: "all", healthFilter: healthFilter).url) else { return }
