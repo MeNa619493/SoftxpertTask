@@ -9,10 +9,9 @@
 import UIKit
 
 class HealthCollectionViewCell: UICollectionViewCell {
-
-   // @IBOutlet weak var healthLabel: UILabel!
     
     @IBOutlet weak var cellStack: UIStackView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -27,7 +26,6 @@ class HealthCollectionViewCell: UICollectionViewCell {
     }
     
     func configureCell(health: [String]) {
-        //healthLabel.text = health
         for text in health {
             let label = UILabel()
             label.text  = text
